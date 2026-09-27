@@ -1,0 +1,73 @@
+site_name: Swift Workshop Handbook
+site_description: คู่มือ workshop และ code snippets สำหรับผู้เข้าร่วม Hackathon
+# site_url: https://<org>.github.io/handbook/
+# repo_url: https://github.com/<org>/handbook
+
+theme:
+  name: material
+  language: th
+  icon:
+    logo: material/language-swift
+  font:
+    text: Noto Sans Thai
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: เปลี่ยนเป็นโหมดมืด
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: เปลี่ยนเป็นโหมดสว่าง
+  features:
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.follow
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  # ดึง code จาก starter repos มาแสดงตรงๆ เพื่อให้ snippet ตรงกับโค้ดที่ compile ได้จริง
+  - pymdownx.snippets:
+      base_path: [".", "../starter-repos"]
+
+nav:
+  - หน้าแรก: index.md
+  - เริ่มต้นใช้งาน: getting-started.md
+  - "Workshop 1: Coding agents":
+      - workshop-1/index.md
+      - Hardware: workshop-1/hardware.md
+      - Git cheat sheet: workshop-1/git.md
+      - Xcode agents: workshop-1/xcode-agents.md
+      - OpenCode: workshop-1/opencode.md
+      - Prompting & best practices: workshop-1/prompting.md

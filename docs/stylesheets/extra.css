@@ -1,0 +1,45 @@
+/* Swift orange */
+:root > * {
+  --md-primary-fg-color: #F05138;
+  --md-primary-fg-color--light: #F47A67;
+  --md-primary-fg-color--dark: #C73B25;
+  --md-accent-fg-color: #F05138;
+  --md-accent-fg-color--transparent: rgba(240, 81, 56, 0.1);
+}
+
+/* อ่านภาษาไทยสบายตาขึ้น */
+.md-typeset { line-height: 1.75; }
+.md-typeset h1 { font-weight: 700; }
+.md-typeset table:not([class]) { font-size: 0.72rem; }
+.md-typeset table:not([class]) th { background: var(--md-accent-fg-color--transparent); }
+
+/* บรรทัดใต้ชื่อหน้า: เวลา · ห้อง · ผู้เข้าร่วม */
+.meta { color: var(--md-default-fg-color--light); font-size: 0.8rem; margin-top: -0.6rem; }
+
+/* Remark สำหรับ Mac แต่ละรุ่น
+   ใช้: !!! mchip "เฉพาะ Mac M chip"  และ  !!! intel "Intel Mac" */
+:root {
+  --md-admonition-icon--mchip: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 2h2v3H8zM14 2h2v3h-2zM8 19h2v3H8zM14 19h2v3h-2zM2 8h3v2H2zM2 14h3v2H2zM19 8h3v2h-3zM19 14h3v2h-3zM6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>');
+  --md-admonition-icon--intel: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10H3V6a1 1 0 0 1 1-1zM1 17h22v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>');
+}
+.md-typeset .admonition.mchip, .md-typeset details.mchip { border-color: #F05138; }
+.md-typeset .mchip > .admonition-title, .md-typeset .mchip > summary { background-color: rgba(240, 81, 56, 0.1); }
+.md-typeset .mchip > .admonition-title::before, .md-typeset .mchip > summary::before {
+  background-color: #F05138;
+  -webkit-mask-image: var(--md-admonition-icon--mchip);
+          mask-image: var(--md-admonition-icon--mchip);
+}
+.md-typeset .admonition.intel, .md-typeset details.intel { border-color: #5B7083; }
+.md-typeset .intel > .admonition-title, .md-typeset .intel > summary { background-color: rgba(91, 112, 131, 0.1); }
+.md-typeset .intel > .admonition-title::before, .md-typeset .intel > summary::before {
+  background-color: #5B7083;
+  -webkit-mask-image: var(--md-admonition-icon--intel);
+          mask-image: var(--md-admonition-icon--intel);
+}
+
+/* พิมพ์เป็นเล่ม: ซ่อน navigation, ไม่ตัดตารางและ code กลางหน้า */
+@media print {
+  .md-header, .md-sidebar, .md-footer, .md-top { display: none !important; }
+  .md-typeset pre, .md-typeset table, .md-typeset .admonition { break-inside: avoid; }
+  .md-typeset a { color: inherit; }
+}
