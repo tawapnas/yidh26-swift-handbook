@@ -8,9 +8,8 @@ theme:
   language: th
   icon:
     logo: material/language-swift
-  font:
-    text: Noto Sans Thai
-    code: JetBrains Mono
+  # LINE Seed Sans TH ไม่มีใน Google Fonts จึงโหลดเองใน extra.css
+  font: false
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -71,3 +70,10 @@ nav:
       - Xcode agents: workshop-1/xcode-agents.md
       - OpenCode: workshop-1/opencode.md
       - Prompting & best practices: workshop-1/prompting.md
+  - "Workshop 2: Foundation Models & on-prem AI":
+      - workshop-2/index.md
+      - เลือก model: workshop-2/models.md
+      - Foundation Models: workshop-2/foundation-models.md
+      - Tool calling: workshop-2/tool-calling.md
+      - Dynamic Profile: workshop-2/dynamic-profiles.md
+      - HackathonAI: workshop-2/hackathon-ai.md

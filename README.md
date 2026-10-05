@@ -19,8 +19,8 @@ mkdocs gh-deploy
 
 - Thai text, technical terms in English. Keep it short.
 - Machine-specific remarks use custom admonitions:
-  - `!!! mchip "เฉพาะ Mac M chip"` for Xcode 27 / Apple silicon only
-  - `!!! intel "Intel Mac"` for Xcode 26 notes
+  - `!!! mchip "Mac M chip (Xcode 27)"` for Xcode 27 / Apple silicon only
+  - `!!! intel "Intel Mac (Xcode 26)"` for Xcode 26 notes
 - Code that must compile should live in the starter repos and be included with
   `--8<-- "path/to/File.swift:section"` (pymdownx.snippets, base path `../starter-repos`).
 - Placeholders in `[brackets]` must be filled in before print.

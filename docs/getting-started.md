@@ -40,7 +40,7 @@ Xcode จะสร้าง team ชื่อ *ชื่อคุณ (Personal T
     App หมดอายุภายใน 7 วัน และสร้าง App ID ใหม่ได้จำกัดต่อสัปดาห์ ใช้ project เดิมตลอดงาน อย่าสร้าง project ทิ้งบ่อยๆ
 
 !!! failure "Build error: bundle identifier is not available"
-    Bundle ID ซ้ำกับ Personal Team ของเพื่อนร่วมทีม ให้ทำตามวิธีที่ระบุใน Team card หรือถาม helper
+    Bundle ID ซ้ำกับ Personal Team ของเพื่อนร่วมทีม ให้ทำตามวิธีที่ระบุใน Team card หรือถาม TA
 
 ### 5. Clone repo ของทีม
 
@@ -78,4 +78,4 @@ if #available(iOS 27, *) {
 ```
 
 !!! intel "Intel Mac (Xcode 26)"
-    Simulator บน Intel Mac ไม่รองรับ Apple Intelligence ให้ test feature AI บน iPad จริงเสมอ
+    Simulator บน Intel Mac ไม่รองรับ Apple Intelligence
