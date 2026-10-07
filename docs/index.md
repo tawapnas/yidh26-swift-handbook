@@ -41,7 +41,7 @@
 
     Train model จาก motion, LiDAR และเสียง แล้ว run บน device
 
-    *เร็วๆ นี้*
+    [:octicons-arrow-right-24: เริ่ม Workshop 3](workshop-3/index.md)
 
 -   :material-apps:{ .lg .middle } **4. Extend your app across the system with App Intents**
 

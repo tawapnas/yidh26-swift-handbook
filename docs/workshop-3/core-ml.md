@@ -1,0 +1,107 @@
+# Core ML
+
+**Core ML** คือ framework ที่ run machine learning model ใน app บนเครื่องทั้งหมด ไม่ต้องใช้ internet model ที่ได้จาก [Create ML](create-ml.md) ใช้กับ Core ML ได้ทันที ใช้ได้ทั้ง Xcode 26 และ 27
+
+## เพิ่ม model เข้า project
+
+ลากไฟล์ `.mlmodel` เข้า Xcode project แล้วติ๊ก target ของ app Xcode จะสร้าง **Swift class ชื่อเดียวกับไฟล์** ให้อัตโนมัติ เช่น `GestureClassifier.mlmodel` จะได้ class `GestureClassifier`
+
+คลิกไฟล์ model ใน Xcode เพื่อดู:
+
+- **General**: ป้ายที่ model ตอบได้ (ชื่อท่า)
+- **Predictions**: ชื่อและขนาดของ input และ output ซึ่งต้องใช้ตอนเขียนโค้ด
+
+## Input และ output ของ Activity Classifier
+
+| | ชื่อ | คืออะไร |
+|---|---|---|
+| Input | ชื่อตาม column ที่เลือกตอน train เช่น `accelX`, `rotationY` | ค่า sensor ของแต่ละแกน เป็น array ยาวเท่า prediction window (100 ค่า) |
+| Input | `stateIn` | "ความจำ" จากการทายครั้งก่อน ครั้งแรกให้เป็นค่าว่าง |
+| Output | `label` | ชื่อท่าที่มั่นใจที่สุด |
+| Output | `labelProbability` | ความมั่นใจของทุกท่า เป็น dictionary ค่า 0–1 |
+| Output | `stateOut` | ส่งกลับไปเป็น `stateIn` ในการทายครั้งถัดไป |
+
+`stateIn`/`stateOut` ทำให้ model จำสิ่งที่เห็นใน window ก่อนหน้าได้ ท่าที่คร่อมสอง window จึงทายได้ดีขึ้น
+
+## ส่งข้อมูลสดให้ model
+
+ใช้ window จาก [Core Motion](core-motion.md#window) เมื่อครบ 100 sample ก็แปลงเป็น `MLMultiArray` แล้วทาย ชื่อ parameter ของ `GestureClassifierInput` ต้องตรงกับชื่อในแท็บ Predictions ของ model ตัวเอง ตัวอย่างนี้สมมติว่า train ด้วย 6 column
+
+```swift
+import CoreML
+import CoreMotion
+
+final class GesturePredictor {
+    private let model = try! GestureClassifier(configuration: MLModelConfiguration())
+    private var state = try! MLMultiArray(shape: [400], dataType: .double)  // ขนาดดูในแท็บ Predictions
+
+    func predict(_ window: [CMDeviceMotion]) throws -> (label: String, confidence: Double) {
+        func column(_ value: (CMDeviceMotion) -> Double) throws -> MLMultiArray {
+            let array = try MLMultiArray(shape: [NSNumber(value: window.count)], dataType: .double)
+            for (i, sample) in window.enumerated() { array[i] = NSNumber(value: value(sample)) }
+            return array
+        }
+
+        let input = GestureClassifierInput(
+            accelX: try column { $0.userAcceleration.x },
+            accelY: try column { $0.userAcceleration.y },
+            accelZ: try column { $0.userAcceleration.z },
+            rotationX: try column { $0.rotationRate.x },
+            rotationY: try column { $0.rotationRate.y },
+            rotationZ: try column { $0.rotationRate.z },
+            stateIn: state)
+
+        let output = try model.prediction(input: input)
+        state = output.stateOut   // เก็บไว้ใช้ครั้งถัดไป
+        return (output.label, output.labelProbability[output.label] ?? 0)
+    }
+}
+```
+
+ต่อเข้ากับ Core Motion:
+
+```swift
+var window = MotionWindow()
+let predictor = GesturePredictor()
+
+startMotionUpdates { sample in
+    if let samples = window.add(sample),
+       let result = try? predictor.predict(samples) {
+        print(result.label, result.confidence)
+    }
+}
+```
+
+!!! warning "ค่าที่ส่งต้องเหมือนตอน train"
+    ใช้ค่า sensor ชนิดเดียวกัน (เช่น `userAcceleration` ไม่ใช่ accelerometer ดิบ), หน่วยเดียวกัน, sampling rate เดียวกัน และลำดับแกนเดียวกับที่ recorder app บันทึก ถ้าไม่ตรง model จะทายผิดโดยไม่มี error
+
+## ทำให้ผลลัพธ์นิ่ง
+
+Model ทายทุก 1 วินาที และบางครั้งทายผิดไปหนึ่งครั้งแล้วกลับมาถูก ถ้าแสดงผลทุกครั้งตรงๆ หน้าจอจะกระพริบสลับไปมา ให้ดูผลหลายครั้งล่าสุด แล้วแสดงท่าที่ทายได้บ่อยที่สุด และเฉพาะเมื่อมั่นใจพอ
+
+```swift
+struct Smoother {
+    private var recent: [String] = []
+
+    mutating func add(_ label: String, confidence: Double) -> String? {
+        guard confidence > 0.6 else { return nil }   // ไม่มั่นใจ ไม่นับ
+        recent.append(label)
+        if recent.count > 5 { recent.removeFirst() } // เก็บ 5 ครั้งล่าสุด
+
+        let counts = Dictionary(recent.map { ($0, 1) }, uniquingKeysWith: +)
+        guard let (best, count) = counts.max(by: { $0.value < $1.value }),
+              count >= 3 else { return nil }         // ต้องชนะอย่างน้อย 3 ใน 5
+        return best
+    }
+}
+```
+
+## Performance และแบตเตอรี่
+
+| เรื่อง | ทำอย่างไร |
+|---|---|
+| **Sampling rate** | ใช้ rate ต่ำที่สุดที่ยังจดจำท่าได้ 50 Hz พอสำหรับท่าทางส่วนใหญ่ |
+| **เรียก model เท่าที่จำเป็น** | ทายเมื่อ window ครบ ไม่ใช่ทุก sample และหยุด sensor เมื่อออกจากหน้าจอ |
+| **โหลด model ครั้งเดียว** | สร้าง model ไว้ตัวเดียวแล้วใช้ซ้ำ การโหลดใหม่ทุกครั้งช้ามาก |
+| **ขนาด model** | Model เล็กโหลดเร็วและใช้ memory น้อย Activity และ Sound Classifier จาก Create ML มักมีขนาดเล็กอยู่แล้ว |
+| **Quantization** | ลดความละเอียดของตัวเลขใน model (เช่น จาก 16 bit เหลือ 8 หรือ 4 bit) ทำให้ไฟล์เล็กและเร็วขึ้น แลกกับความแม่นที่ลดลงเล็กน้อย สำคัญกับ model ใหญ่อย่างใน [Core AI](core-ai.md) |

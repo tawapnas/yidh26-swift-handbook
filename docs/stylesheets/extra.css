@@ -49,10 +49,20 @@
   background-color: #1C1C1E;
 }
 
+/* หัวเมนูบนมือถือ (ที่มีโลโก้): ไล่สีส้ม → แดงแบบโลโก้ Swift
+   จอใหญ่ Material ใช้ title เดียวกันเป็นหัวเมนูซ้าย จึงจำกัดไว้แค่จอเล็ก */
+@media screen and (max-width: 76.234375em) {
+  .md-nav--primary .md-nav__title[for="__drawer"] {
+    background-image: linear-gradient(135deg, #F88A36, #E8322A);
+  }
+}
+
 /* อ่านภาษาไทยสบายตาขึ้น */
 .md-typeset { line-height: 1.75; }
 .md-typeset h1 { font-weight: 700; color: var(--md-default-fg-color); }
 .md-typeset table:not([class]) { font-size: 0.72rem; }
+/* กล่อง admonition / details ทุกแบบ: ตัวอักษรเท่าเนื้อหาปกติ (Material ตั้งไว้เล็กกว่า) */
+.md-typeset .admonition, .md-typeset details { font-size: inherit; }
 .md-typeset table:not([class]) th { background: #1C1C1E; color: #FFFFFF; }
 
 /* บรรทัดใต้ชื่อหน้า: เวลา · ห้อง · ผู้เข้าร่วม */
@@ -77,6 +87,21 @@
   background-color: #5B7083;
   -webkit-mask-image: var(--md-admonition-icon--intel);
           mask-image: var(--md-admonition-icon--intel);
+}
+
+/* เมนูซ้ายแบบ Apple docs: ตัวเล็ก ระยะชิด หน้าปัจจุบันเป็นแถบสี (เฉพาะจอใหญ่) */
+@media screen and (min-width: 76.25em) {
+  .md-nav--primary { font-size: 0.68rem; }
+  /* ทุกเมนูใช้กล่องขนาดเท่ากัน หน้าปัจจุบันต่างแค่สีพื้น เมนูจึงไม่ขยับเวลาเปลี่ยนหน้า */
+  .md-nav--primary .md-nav__link {
+    margin-top: 0;
+    border-radius: 0.3rem;
+    padding: 0.15rem 0.4rem;
+    margin-left: -0.4rem;
+  }
+  .md-nav--primary .md-nav__link--active:not(label) {
+    background: var(--md-accent-fg-color--transparent);
+  }
 }
 
 /* พิมพ์เป็นเล่ม: ซ่อน navigation, ไม่ตัดตารางและ code กลางหน้า */
