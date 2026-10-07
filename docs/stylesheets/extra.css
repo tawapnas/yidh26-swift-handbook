@@ -69,7 +69,7 @@
 .meta { color: var(--md-default-fg-color--light); font-size: 0.8rem; margin-top: -0.6rem; }
 
 /* Remark สำหรับ Mac แต่ละรุ่น
-   ใช้: !!! mchip "Mac M chip (Xcode 27)"  และ  !!! intel "Intel Mac (Xcode 26)" */
+   ใช้: !!! mchip "{{ mac.apple }} · Xcode 27"  และ  !!! intel "{{ mac.intel }} · Xcode 26" */
 :root {
   --md-admonition-icon--mchip: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8 2h2v3H8zM14 2h2v3h-2zM8 19h2v3H8zM14 19h2v3h-2zM2 8h3v2H2zM2 14h3v2H2zM19 8h3v2h-3zM19 14h3v2h-3zM6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>');
   --md-admonition-icon--intel: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v10H3V6a1 1 0 0 1 1-1zM1 17h22v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1z"/></svg>');
@@ -92,6 +92,8 @@
 /* เมนูซ้ายแบบ Apple docs: ตัวเล็ก ระยะชิด หน้าปัจจุบันเป็นแถบสี (เฉพาะจอใหญ่) */
 @media screen and (min-width: 76.25em) {
   .md-nav--primary { font-size: 0.68rem; }
+  /* title ด้านบนมีเงาสีพื้นหลังกว้าง 0.4rem เว้นที่ให้เมนูแรกไม่ถูกเงาทับ */
+  .md-nav--primary > .md-nav__title { margin-bottom: 0.4rem; }
   /* ทุกเมนูใช้กล่องขนาดเท่ากัน หน้าปัจจุบันต่างแค่สีพื้น เมนูจึงไม่ขยับเวลาเปลี่ยนหน้า */
   .md-nav--primary .md-nav__link {
     margin-top: 0;

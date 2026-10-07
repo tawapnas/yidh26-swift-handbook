@@ -1,6 +1,6 @@
 # Core AI
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     Core AI เป็น framework ใหม่ของ iOS 27 ใช้ได้เฉพาะ Xcode 27 ครอบโค้ดด้วย `#if compiler(>=6.4)` และ `#if canImport(CoreAILanguageModels)` ตาม[วิธีในหน้าเริ่มต้นใช้งาน](../getting-started.md#project-xcode-26-27) เพื่อให้เพื่อนที่ใช้ Xcode 26 ยัง build project ได้
 
 **Core AI** คือ framework ของ Apple สำหรับ run model ขนาดใหญ่บนเครื่อง เช่น open-source language model, model สร้างภาพ และ model แยกวัตถุในภาพ ทุกอย่าง run บน iPad ไม่ต้องใช้ internet ข้อมูลไม่ออกจากเครื่อง
@@ -117,6 +117,6 @@ print(result.tip, result.score)
 | หัวข้อ | สรุป |
 |---|---|
 | **ดู model ที่มี** | `uv run coreai.model.registry --list-models` ใน repo `coreai-models` มีทั้ง language model, speech-to-text, แยกวัตถุ และสร้างภาพ |
-| **Export model เอง** | `uv run coreai.llm.export Qwen/Qwen3-0.6B --platform iOS --max-context-length 4096` แปลง model จาก Hugging Face เป็นรูปแบบ Core AI ใช้เวลาและพื้นที่มาก ทำบน Mac M chip |
+| **Export model เอง** | `uv run coreai.llm.export Qwen/Qwen3-0.6B --platform iOS --max-context-length 4096` แปลง model จาก Hugging Face เป็นรูปแบบ Core AI ใช้เวลาและพื้นที่มาก ทำบน {{ mac.apple }} |
 | **Quantization** | Model สำหรับ iOS ถูกบีบอัดเป็น 4-bit แล้ว ไฟล์เล็กลงหลายเท่าและเร็วขึ้น แลกกับความแม่นที่ลดลงเล็กน้อย Apple แนะนำให้ model บน iOS มีขนาดไม่เกิน 2 GB |
 | **ดู performance** | ใช้ Instruments ดูเวลาโหลด model และความเร็วในการสร้างคำตอบ |

@@ -1,6 +1,6 @@
 # Dynamic Profile
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     Dynamic Profile เป็น API ใหม่ของ iOS 27 ใช้ได้เฉพาะ Xcode 27 ครอบโค้ดด้วย `#if compiler(>=6.4)` และใส่ `@available(iOS 27, *)` ให้ type ที่ใช้ ตาม[วิธีในหน้าเริ่มต้นใช้งาน](../getting-started.md#project-xcode-26-27) เพื่อให้เพื่อนที่ใช้ Xcode 26 ยัง build project ได้
 
 ## ปัญหาที่ Dynamic Profile แก้

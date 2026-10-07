@@ -33,15 +33,15 @@ let b = try await thai.respond(to: "สรุปข้อความนี้: 
 
 ## ทำอะไรได้บ้างตามเครื่อง
 
-Feature บางอย่างต้องใช้ iOS 27 SDK ซึ่งมีเฉพาะใน Xcode 27 บน Mac M chip
+Feature บางอย่างต้องใช้ iOS 27 SDK ซึ่งมีเฉพาะใน Xcode 27 บน {{ mac.apple }}
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     ทำได้ครบทุกส่วน: ใช้ on-device AFM 3, ส่ง model บน cluster เข้า `LanguageModelSession` ได้โดยตรง, ใช้ PCC และส่งรูปให้ AFM 3 วิเคราะห์
 
-!!! intel "Intel Mac (Xcode 26)"
+!!! intel "{{ mac.intel }} · Xcode 26"
     ใช้ `LanguageModelSession` กับ on-device AFM 3 ได้ตามปกติ แต่ iOS 26 SDK ยังส่ง model บน cluster เข้า session ไม่ได้ จึงต้องเรียก cluster ผ่าน `OnPremClient` แทน ซึ่งเป็น API แยกที่ใช้งานง่ายแต่ไม่มี `@Generable` และ tool calling
 
-    ถ้าอยากลองแบบเต็ม ให้นั่งคู่กับเพื่อนที่ใช้ Mac M chip ช่วง on-prem AI
+    ถ้าอยากลองแบบเต็ม ให้นั่งคู่กับเพื่อนที่ใช้ {{ mac.apple }} ช่วง on-prem AI
 
 ## ในหมวดนี้
 
@@ -76,7 +76,7 @@ Feature บางอย่างต้องใช้ iOS 27 SDK ซึ่งม
 
 App จดโน้ตที่เลือก model ให้เอง: โน้ตสั้นส่งไป on-device ซึ่งเร็วและฟรี ส่วนโน้ตยาวหรือซับซ้อนส่งไป model ทั่วไปบน cluster ทั้งหมดผ่านฟังก์ชัน router ตัวเดียว
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     เพิ่ม PCC เป็นอีกตัวเลือกใน track ที่ทำ แล้วเทียบผลกับ on-device และ cluster
 
 ## Idea prompts
@@ -92,7 +92,7 @@ App จดโน้ตที่เลือก model ให้เอง: โน�
 ## Exit checklist
 
 - [ ] มี feature ที่ใช้ `LanguageModelSession` กับ on-device model
-- [ ] สลับไปใช้ model บน cluster ได้ (Intel Mac: ผ่าน `OnPremClient`)
+- [ ] สลับไปใช้ model บน cluster ได้ ถ้าใช้ {{ mac.intel }} ให้เรียกผ่าน `OnPremClient`
 - [ ] Fallback กลับมา on-device ได้เมื่อ cluster เชื่อมต่อไม่ได้
 - [ ] UI แสดงว่า model ไหนเป็นคนตอบ
 - [ ] `Secrets.plist` ไม่อยู่ใน commit

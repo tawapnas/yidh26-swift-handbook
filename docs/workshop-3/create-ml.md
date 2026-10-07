@@ -1,6 +1,6 @@
 # Create ML
 
-**Create ML** คือ app บน Mac ที่ train machine learning model ได้โดยไม่ต้องเขียนโค้ด เราแค่เตรียมตัวอย่างข้อมูลที่ติดป้ายไว้ว่าเป็นท่าอะไรหรือเสียงอะไร Create ML จะเรียนรู้รูปแบบจากตัวอย่างเหล่านั้น แล้วให้ไฟล์ model ที่นำไปใช้ใน app ได้ทันที ใช้ได้ทั้ง Intel Mac และ Mac M chip
+**Create ML** คือ app บน Mac ที่ train machine learning model ได้โดยไม่ต้องเขียนโค้ด เราแค่เตรียมตัวอย่างข้อมูลที่ติดป้ายไว้ว่าเป็นท่าอะไรหรือเสียงอะไร Create ML จะเรียนรู้รูปแบบจากตัวอย่างเหล่านั้น แล้วให้ไฟล์ model ที่นำไปใช้ใน app ได้ทันที ใช้ได้ทั้ง {{ mac.intel }} และ {{ mac.apple }}
 
 เปิดได้จาก **Xcode › Open Developer Tool › Create ML**
 
@@ -53,8 +53,8 @@ MotionData/
 4. **Prediction Window Size**: จำนวน sample ที่ model ดูในแต่ละครั้ง ใช้ **100** (2 วินาทีที่ 50 Hz) ต้องตรงกับขนาด window ในโค้ด [Core Motion](core-motion.md#window)
 5. กด **Train**
 
-!!! intel "Intel Mac (Xcode 26)"
-    Train บน Intel Mac ช้ากว่า เริ่มจาก 3 ท่า ท่าละไม่กี่ไฟล์ก่อน ได้ผลแล้วค่อยเพิ่มข้อมูล
+!!! intel "{{ mac.intel }} · Xcode 26"
+    Train บน {{ mac.intel }} ช้ากว่า เริ่มจาก 3 ท่า ท่าละไม่กี่ไฟล์ก่อน ได้ผลแล้วค่อยเพิ่มข้อมูล
 
 ### 4. ดูผลและทดสอบ
 

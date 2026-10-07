@@ -63,7 +63,7 @@ git clone https://github.com/<org>/team-XX.git
 
 ## ใช้ project เดียวกันทั้ง Xcode 26 และ 27
 
-ทีมมีทั้ง Xcode 27 (Mac M chip) และ Xcode 26 (Intel Mac) จึงต้องทำให้ project build ได้ทั้งสองเวอร์ชัน
+ทีมมีทั้ง Xcode 27 บน {{ mac.apple }} และ Xcode 26 บน {{ mac.intel }} จึงต้องทำให้ project build ได้ทั้งสองเวอร์ชัน
 
 - Deployment target คือ **iOS 26**
 - ถ้า Xcode 27 ถามให้ update project format หรือ recommended settings ให้กด **ไม่** 
@@ -77,5 +77,5 @@ if #available(iOS 27, *) {
 #endif
 ```
 
-!!! intel "Intel Mac (Xcode 26)"
-    Simulator บน Intel Mac ไม่รองรับ Apple Intelligence
+!!! intel "{{ mac.intel }} · Xcode 26"
+    Simulator บน {{ mac.intel }} ไม่รองรับ Apple Intelligence

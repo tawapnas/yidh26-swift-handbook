@@ -39,7 +39,7 @@ NSLocalNetworkUsageDescription
 
 ## เปลี่ยน model ใน session
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     การส่ง model บน cluster เข้า `LanguageModelSession` ต้องใช้ iOS 27 SDK ครอบโค้ดด้วย `#if compiler(>=6.4)` ตาม[วิธีในหน้าเริ่มต้นใช้งาน](../getting-started.md#project-xcode-26-27) เพื่อให้เพื่อนที่ใช้ Xcode 26 ยัง build project ได้
 
 สร้าง `OnPremLanguageModel` ด้วย constant ของ model ที่ต้องการและ team key แล้วส่งเข้า session ผ่าน parameter `model:` ที่เหลือใช้เหมือนเดิมทุกอย่าง
@@ -88,9 +88,9 @@ func summarize(_ text: String) async throws -> (String, model: String) {
 }
 ```
 
-## Intel Mac: `OnPremClient`
+## {{ mac.intel }}: `OnPremClient`
 
-!!! intel "Intel Mac (Xcode 26)"
+!!! intel "{{ mac.intel }} · Xcode 26"
     iOS 26 SDK ยังส่ง model บน cluster เข้า `LanguageModelSession` ไม่ได้ HackathonAI จึงมี `OnPremClient` ให้ใช้แทน เป็น async API ธรรมดาที่ส่ง prompt แล้วได้ข้อความกลับมา รองรับทั้งแบบรอคำตอบเต็มและแบบ streaming แต่ไม่มี `@Generable` และ tool calling
 
 ```swift

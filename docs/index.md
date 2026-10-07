@@ -4,7 +4,7 @@
 
 ## ตารางเวลา
 
-| เวลา | Room A (Mac M chip) | Room B (Intel Mac + iPad) |
+| เวลา | Room A · {{ mac.apple }} | Room B · {{ mac.intel }} + iPad |
 |---|---|---|
 | 10:00–12:00 | **1. Code-along: Build your first app with coding agents** | ← Main hall · ทุกคนเข้าร่วม |
 | 12:00–13:00 | พักกลางวัน | พักกลางวัน |
@@ -13,7 +13,7 @@
 | 14:40–16:10 | **3. Build sensor-aware intelligence with Core AI and Create ML** | **4. Extend your app across the system with App Intents** |
 
 !!! tip "เลือก workshop ช่วงบ่าย"
-    เลือกตาม idea ของทีม ถ้าทีมแยกกันเข้า ให้คนที่เข้า **Room A** ถือ Mac M chip ไปด้วย
+    เลือกตาม idea ของทีม ถ้าทีมแยกกันเข้า ให้คนที่เข้า **Room A** ถือ {{ mac.apple }} ไปด้วย
 
 ## Workshops
 

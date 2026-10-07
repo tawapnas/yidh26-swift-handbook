@@ -1,6 +1,6 @@
 # Hardware
 
-แต่ละทีมมีเครื่องสองแบบที่ทำงานได้ไม่เท่ากัน รู้ไว้ก่อนจะได้แบ่งงานถูก: งานที่ต้องใช้ iOS 27 ทำบน Mac M chip ส่วนงานอื่นทั้งหมดทำบน Intel Mac ได้
+แต่ละทีมมีเครื่องสองแบบที่ทำงานได้ไม่เท่ากัน รู้ไว้ก่อนจะได้แบ่งงานถูก: งานที่ต้องใช้ iOS 27 ทำบน {{ mac.apple }} ส่วนงานอื่นทั้งหมดทำบน {{ mac.intel }} ได้
 
 ## อุปกรณ์ของแต่ละทีม
 
@@ -13,7 +13,7 @@
 
 ## เครื่องไหนทำอะไรได้
 
-| ความสามารถ | Intel Mac · Xcode 26 | Mac M chip · Xcode 27 |
+| ความสามารถ | {{ mac.intel }} · Xcode 26 | {{ mac.apple }} · Xcode 27 |
 |---|:---:|:---:|
 | SwiftUI, build, run บน iPad | ✓ | ✓ |
 | Git และ GitHub | ✓ | ✓ |
@@ -22,10 +22,10 @@
 | API ใหม่ของ iOS 27 | ✗ | ✓ |
 | Simulator ที่รองรับ Apple Intelligence | ✗ | ✓ |
 
-!!! intel "Intel Mac (Xcode 26)"
-    ใช้ Xcode 27 ไม่ได้ เพราะ Xcode 27 รองรับเฉพาะ Apple silicon ส่วน Xcode agents ต้องใช้ macOS 26.2 ขึ้นไป Intel Mac จึงใช้ Xcode 26 กับ OpenCode แทน
+!!! intel "{{ mac.intel }} · Xcode 26"
+    ใช้ Xcode 27 ไม่ได้ เพราะ Xcode 27 รองรับเฉพาะ Apple silicon ส่วน Xcode agents ต้องใช้ macOS 26.2 ขึ้นไป {{ mac.intel }} จึงใช้ Xcode 26 กับ OpenCode แทน
 
-    Xcode 26 ยังมี Foundation Models, App Intents, Vision, VisionKit, Create ML และ Core ML ครบ งานส่วนใหญ่ของ hackathon จึงทำบน Intel Mac ได้
+    Xcode 26 ยังมี Foundation Models, App Intents, Vision, VisionKit, Create ML และ Core ML ครบ งานส่วนใหญ่ของ hackathon จึงทำบน {{ mac.intel }} ได้
 
 ## iPad แต่ละรุ่นต่างกัน
 

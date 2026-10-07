@@ -1,11 +1,11 @@
 # OpenCode
 
-**OpenCode** คือ open-source coding agent ที่ run ใน Terminal ใช้ได้ **ทุกเครื่อง** ทั้ง Intel Mac และ Mac M chip ทำงานเหมือน Xcode agents: อ่านและแก้ไฟล์, รันคำสั่ง และใช้ Git ได้ ต่างกันที่ไม่ได้อยู่ใน Xcode จึงมองไม่เห็น Preview และค้น Apple documentation ไม่ได้
+**OpenCode** คือ open-source coding agent ที่ run ใน Terminal ใช้ได้ **ทุกเครื่อง** ทั้ง {{ mac.intel }} และ {{ mac.apple }} ทำงานเหมือน Xcode agents: อ่านและแก้ไฟล์, รันคำสั่ง และใช้ Git ได้ ต่างกันที่ไม่ได้อยู่ใน Xcode จึงมองไม่เห็น Preview และค้น Apple documentation ไม่ได้
 
 Default model คือ **free model จาก OpenCode Zen** ซึ่งเป็นบริการรวม model ของ OpenCode ไม่มีค่าใช้จ่าย ภายหลังทีมเปลี่ยนไปใช้ model หรือ provider ที่ชอบได้
 
-!!! intel "Intel Mac (Xcode 26)"
-    OpenCode คือ coding agent หลักของ Intel Mac เพราะใช้ Xcode agents ไม่ได้
+!!! intel "{{ mac.intel }} · Xcode 26"
+    OpenCode คือ coding agent หลักของ {{ mac.intel }} เพราะใช้ Xcode agents ไม่ได้
 
 ## เริ่มใช้งาน
 

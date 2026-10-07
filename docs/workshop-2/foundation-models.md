@@ -4,8 +4,8 @@
 
 ใช้ได้ทั้ง Xcode 26 และ 27 โค้ดทุกตัวอย่างในหน้านี้ใช้กับ on-device AFM 3 และใช้กับ model บน cluster ได้เหมือนกันเมื่อ[เปลี่ยน model](hackathon-ai.md)
 
-!!! intel "Intel Mac (Xcode 26)"
-    Simulator บน Intel Mac ไม่รองรับ Apple Intelligence ให้ run บน iPad เสมอ
+!!! intel "{{ mac.intel }} · Xcode 26"
+    Simulator บน {{ mac.intel }} ไม่รองรับ Apple Intelligence ให้ run บน iPad เสมอ
 
 ## ถาม-ตอบ
 

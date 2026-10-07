@@ -8,7 +8,7 @@ Workshop นี้ทุกคนจะได้ใช้ agent บนเคร�
 
 - **Run app บน iPad ของตัวเอง**: สร้าง SwiftUI project แล้วติดตั้งลง iPad ด้วย Apple ID ฟรี
 - **ใช้ Git และ GitHub**: clone, commit, branch, push, pull, merge, แก้ conflict และเปิด pull request ทั้งจาก Xcode และ Terminal
-- **ใช้ coding agent บนเครื่องตัวเอง**: **Xcode agents** บน Mac M chip หรือ **OpenCode** บน Intel Mac
+- **ใช้ coding agent บนเครื่องตัวเอง**: **Xcode agents** บน {{ mac.apple }} หรือ **OpenCode** บน {{ mac.intel }}
 - **ทำงานครบ loop**: plan → implement → build → review diff → test บน iPad → commit
 - **ทำงานคู่ขนานกับเพื่อน**: แต่ละคนทำ feature บน branch ของตัวเอง แล้ว merge รวมกัน
 - **ใช้ agent อย่างปลอดภัย**: ไม่ใส่ข้อมูลลับใน prompt, แบ่งงานให้เล็ก และรู้ว่าเมื่อไหร่ควรหยุดแล้วย้อนกลับ
@@ -21,7 +21,7 @@ Agent แก้โค้ดได้ทีละหลายไฟล์ใน�
 
 ทุกคนมี agent ใช้ แต่สองตัวทำงานต่างกันเล็กน้อย
 
-| | Xcode agents (Mac M chip) | OpenCode (Intel Mac) |
+| | Xcode agents · {{ mac.apple }} | OpenCode · {{ mac.intel }} |
 |---|---|---|
 | ใช้ที่ไหน | Panel ใน Xcode 27 | Terminal เปิดคู่กับ Xcode 26 |
 | Model | Claude, Codex หรือ Gemini ผ่าน account ของทีม | Free model จาก OpenCode Zen เปลี่ยนได้ภายหลัง |
@@ -37,8 +37,8 @@ Agent แก้โค้ดได้ทีละหลายไฟล์ใน�
 |---|---|
 | [Hardware](hardware.md) | อุปกรณ์ของทีม และเครื่องไหนทำอะไรได้ |
 | [Git cheat sheet](git.md) | คำสั่ง Git ที่ต้องใช้ ทั้งใน Xcode และ Terminal พร้อมวิธีแก้ conflict |
-| [Xcode agents](xcode-agents.md) | ใช้ agent ใน Xcode 27 บน Mac M chip |
-| [OpenCode](opencode.md) | ใช้ agent ใน Terminal บน Intel Mac |
+| [Xcode agents](xcode-agents.md) | ใช้ agent ใน Xcode 27 บน {{ mac.apple }} |
+| [OpenCode](opencode.md) | ใช้ agent ใน Terminal บน {{ mac.intel }} |
 | [Prompting & best practices](prompting.md) | Prompt template, สิ่งที่ห้ามทำ และเทคนิคให้ agent ทำงานได้ดี |
 
 ## Guided build: Team Card

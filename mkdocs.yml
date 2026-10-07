@@ -38,6 +38,17 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+plugins:
+  - search
+  # ใช้ค่าใน extra ในหน้าเอกสารได้ เช่น {{ mac.apple }}
+  - macros
+
+# ชื่อเครื่องที่ใช้ทั้ง handbook แก้ที่นี่ที่เดียว
+extra:
+  mac:
+    apple: MacBook (Apple Silicon)
+    intel: MacBook (Intel)
+
 markdown_extensions:
   - admonition
   - attr_list

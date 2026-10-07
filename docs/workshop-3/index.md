@@ -15,12 +15,12 @@ Workshop 2 ใช้ language model ที่มีอยู่แล้ว ส�
 
 ## ทำอะไรได้บ้างตามเครื่อง
 
-!!! intel "Intel Mac (Xcode 26)"
-    ทำได้เกือบทั้ง workshop: อ่าน sensor, จดจำเสียง, train model ใน Create ML และ run ด้วย Core ML บน iPad ส่วน Core AI ต้องใช้ Xcode 27 ให้นั่งคู่กับเพื่อนที่ใช้ Mac M chip ช่วงนั้น
+!!! intel "{{ mac.intel }} · Xcode 26"
+    ทำได้เกือบทั้ง workshop: อ่าน sensor, จดจำเสียง, train model ใน Create ML และ run ด้วย Core ML บน iPad ส่วน Core AI ต้องใช้ Xcode 27 ให้นั่งคู่กับเพื่อนที่ใช้ {{ mac.apple }} ช่วงนั้น
 
-    Create ML บน Intel Mac train ช้ากว่า ให้ใช้ข้อมูลน้อยๆ: 3 ท่า ท่าละไม่กี่ครั้ง
+    Create ML บน {{ mac.intel }} train ช้ากว่า ให้ใช้ข้อมูลน้อยๆ: 3 ท่า ท่าละไม่กี่ครั้ง
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     ทำได้ทุกส่วน รวมถึง [Core AI](core-ai.md)
 
 ## เลือกเครื่องมือ
@@ -57,7 +57,7 @@ Workshop 2 ใช้ language model ที่มีอยู่แล้ว ส�
 | [LiDAR](lidar.md) | อ่านความลึกและวัดระยะ บน iPad Pro |
 | [Create ML](create-ml.md) | อัดข้อมูลแล้ว train model เองโดยไม่ต้องเขียนโค้ด |
 | [Core ML](core-ml.md) | Run model กับข้อมูลสด และประหยัดแบตเตอรี่ |
-| [Core AI](core-ai.md) | Run open-source language model บนเครื่อง (Mac M chip) |
+| [Core AI](core-ai.md) | Run open-source language model บน {{ mac.apple }} |
 
 ## Hands-on: Motion Coach
 
@@ -75,7 +75,7 @@ Workshop 2 ใช้ language model ที่มีอยู่แล้ว ส�
 **Stretch goals**
 
 - **iPad ที่มี LiDAR**: เพิ่มการวัดระยะหรือขนาดของสิ่งของ ดู [LiDAR](lidar.md)
-- **Mac M chip**: ให้ Core AI เปลี่ยนท่าที่ทายได้และค่าที่วัดได้ เป็นคำแนะนำสั้นๆ ดู [Core AI](core-ai.md#motion-coach)
+- **{{ mac.apple }}**: ให้ Core AI เปลี่ยนท่าที่ทายได้และค่าที่วัดได้ เป็นคำแนะนำสั้นๆ ดู [Core AI](core-ai.md#motion-coach)
 
 ## Idea prompts
 
@@ -90,4 +90,4 @@ Workshop 2 ใช้ language model ที่มีอยู่แล้ว ส�
 - [ ] อ่านข้อมูลจาก sensor อย่างน้อย 1 ตัวบน iPad ได้
 - [ ] Train model ใน Create ML จากข้อมูลที่อัดเอง
 - [ ] Model ทายท่าหรือเสียงจากข้อมูลสดบน iPad ได้ พร้อมแสดงความมั่นใจ
-- [ ] Mac M chip: run Core AI model ได้อย่างน้อย 1 ตัว
+- [ ] {{ mac.apple }}: run Core AI model ได้อย่างน้อย 1 ตัว

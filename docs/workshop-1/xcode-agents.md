@@ -1,7 +1,7 @@
 # Xcode agents
 
-!!! mchip "Mac M chip (Xcode 27)"
-    Xcode agents ใช้ได้เฉพาะ Mac M chip Intel Mac ใช้ไม่ได้ ให้ใช้ [OpenCode](opencode.md) แทน
+!!! mchip "{{ mac.apple }} · Xcode 27"
+    Xcode agents ใช้ได้เฉพาะ {{ mac.apple }} {{ mac.intel }} ใช้ไม่ได้ ให้ใช้ [OpenCode](opencode.md) แทน
 
 Xcode 27 มี coding agent อยู่ใน panel ของ Xcode เลย เลือกได้ทั้ง **Claude**, **Codex** และ **Gemini** ใช้ account ของทีมที่ sign in ไว้แล้วบนเครื่อง ไม่ต้องตั้งค่าเพิ่ม
 
@@ -33,4 +33,4 @@ Xcode 27 มี coding agent อยู่ใน panel ของ Xcode เลย 
     Account ของทีมมี usage limit ที่ต้องใช้ร่วมกันตลอด hackathon ใช้กับงานที่คุ้มค่า เช่น feature ใหม่หรือ bug ที่ติดนาน งานเล็กๆ อย่างแก้ข้อความบรรทัดเดียวทำเองเร็วกว่า
 
 !!! tip "Agent เขียนโค้ด iOS 27 ได้ แต่ต้องระวัง"
-    เพื่อนร่วมทีมที่ใช้ Intel Mac build ได้แค่ iOS 26 ถ้า agent ใช้ API ของ iOS 27 โดยไม่ระวัง เพื่อนจะ build ไม่ผ่านหลัง pull ใส่ constraint "iOS 26 deployment target, no iOS 27-only APIs" ใน prompt เสมอ ยกเว้น feature ที่ตั้งใจใช้ iOS 27 และครอบด้วย `#if compiler(>=6.4)` แล้ว ดู[วิธีครอบโค้ด](../getting-started.md#project-xcode-26-27)
+    เพื่อนร่วมทีมที่ใช้ {{ mac.intel }} build ได้แค่ iOS 26 ถ้า agent ใช้ API ของ iOS 27 โดยไม่ระวัง เพื่อนจะ build ไม่ผ่านหลัง pull ใส่ constraint "iOS 26 deployment target, no iOS 27-only APIs" ใน prompt เสมอ ยกเว้น feature ที่ตั้งใจใช้ iOS 27 และครอบด้วย `#if compiler(>=6.4)` แล้ว ดู[วิธีครอบโค้ด](../getting-started.md#project-xcode-26-27)

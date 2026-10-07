@@ -75,5 +75,5 @@ case .unavailable:
 }
 ```
 
-!!! mchip "Mac M chip (Xcode 27)"
+!!! mchip "{{ mac.apple }} · Xcode 27"
     **AFM 3 Core Advanced**: บนเครื่องที่รองรับ (M3/M4, memory 12 GB ขึ้นไป) จะได้ AFM 3 Core Advanced ที่เก่งกว่าและส่งรูปให้ model ได้ เครื่องอื่นยังใช้ AFM 3 Core ได้ตามปกติ ออกแบบ feature ให้ทำงานได้กับทั้งสองแบบ แล้วค่อยเพิ่มความสามารถเมื่อเครื่องรองรับ
