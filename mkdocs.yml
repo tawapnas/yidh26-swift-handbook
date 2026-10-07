@@ -1,7 +1,7 @@
 site_name: Swift Workshop Handbook
 site_description: คู่มือ workshop และ code snippets สำหรับผู้เข้าร่วม Hackathon
-# site_url: https://<org>.github.io/handbook/
-# repo_url: https://github.com/<org>/handbook
+site_url: https://tawapnas.github.io/yidh26-swift-handbook/
+repo_url: https://github.com/tawapnas/yidh26-swift-handbook
 
 theme:
   name: material
