@@ -10,21 +10,11 @@ theme:
     logo: material/language-swift
   # LINE Seed Sans TH ไม่มีใน Google Fonts จึงโหลดเองใน extra.css
   font: false
+  # โหมดมืดอย่างเดียว ไม่มีปุ่มสลับ
   palette:
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/weather-night
-        name: เปลี่ยนเป็นโหมดมืด
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/weather-sunny
-        name: เปลี่ยนเป็นโหมดสว่าง
+    scheme: slate
+    primary: custom
+    accent: custom
   features:
     - navigation.sections
     - navigation.indexes

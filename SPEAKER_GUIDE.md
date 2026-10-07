@@ -22,31 +22,27 @@ Use these sections **in this order, with these exact headings and anchors**. The
 | # | Heading | What goes in it | Budget |
 |---|---|---|---|
 | – | `# <session title>` + intro | What this workshop is about and what it lets a team's app do. How it relates to other workshops. | ≤ 2 short paragraphs |
-| – | `!!! abstract "ภาพรวม"` | Duration · room · machines · starter repo · prerequisites | 4 bullets |
-| 1 | `## สิ่งที่จะได้เรียน { #outcomes }` | Learning outcomes | 4–6 bullets, `**Bold verb phrase**: one sentence` |
+| 1 | `## สิ่งที่จะได้เรียน { #outcomes }` | Learning outcomes | Numbered list, max 4 items, `**Bold verb phrase**: one sentence` |
 | 2 | `## แนวคิดหลัก { #concepts }` | The one mental model to remember: a "ถ้าต้องการ… ใช้…" table, a comparison table, or one short code block | ≤ 1 screen; H3s allowed |
-| 3 | `## ทำอะไรได้บ้างตามเครื่อง { #machines }` | What works on which machine and the workaround | `mchip` admonition, then `intel`; one sentence if no difference |
-| 4 | `## ลำดับใน session { #agenda }` | Agenda in relative minutes, linked to pages | 4–6 rows |
-| 5 | `## ในหมวดนี้ { #pages }` | Topic pages in reading order | table `หน้า \| เนื้อหา`, one line each |
-| 6 | `## Hands-on` | What participants build, step by step | 1 build, or 2–3 tracks |
-| 7 | `## Idea prompts` | Hackathon project ideas that use this workshop | 4–6 bullets; last one combines another workshop |
-| 8 | `## Exit checklist` | How a participant knows they are done | 3–5 checkboxes |
+| 3 | `## MacBook แต่ละเครื่องทำอะไรได้บ้าง { #machines }` | What works on which machine and the workaround | `mchip` admonition, then `intel`; one sentence if no difference |
+| 4 | `## หัวข้อหลัก { #pages }` | Topic pages in reading order | table `หน้า \| เนื้อหา`, one line each |
+| 5 | `## ลงมือปฏิบัติ { #hands-on }` | What participants build, step by step | 1 build, or 2–3 tracks |
 
-### Agenda: suggested split
+### Planning your session
 
-Keep at least 40% of the session hands-on.
+The handbook does not include the event schedule, a per-session agenda, or session duration and room. When planning your 90–120 minutes, keep at least 40% hands-on:
 
 | Block | 90 min | 120 min |
 |---|---|---|
 | Intro + แนวคิดหลัก | 10 | 15 |
 | Code-along through topic pages | 30 | 40 |
 | Hands-on | 40 | 50 |
-| Idea prompts + exit checklist | 10 | 15 |
+| Wrap-up and Q&A | 10 | 15 |
 
-### Hands-on
+### ลงมือปฏิบัติ
 
 ```markdown
-## Hands-on
+## ลงมือปฏิบัติ { #hands-on }
 
 ### <ชื่อ app หรือ feature>
 
@@ -57,21 +53,11 @@ Keep at least 40% of the session hands-on.
 
 !!! tip "ตามไม่ทัน"
     <checkpoint branch, backup dataset, หรือขอจาก TA>
-
-**Stretch goals**
-
-- **{{ mac.apple }}**: ...
 ```
 
 - 4–7 steps. Each starts with a **bold verb** and links to the topic page that explains it; do not re-explain the API here.
 - Always give a catch-up path (checkpoint branch, backup dataset) so nobody is stuck for the rest of the session.
 - Several options: one `### Track: <name>` per track. A build followed by a team exercise: `### 1. …` and `### 2. …`.
-
-### Exit checklist
-
-- Observable results ("ทายท่าจากข้อมูลสดบน iPad ได้"), not "เข้าใจ X".
-- Prefix machine-specific items: `{{ mac.apple }}: …`.
-- Include a hygiene item when relevant (keys not committed, synthetic data only).
 
 ## Topic pages
 
@@ -83,14 +69,17 @@ Keep at least 40% of the session hands-on.
 ## <1. task> … ## <N. task>  the content
 ## ปัญหาที่เจอบ่อย            optional
 ## ใช้ร่วมกับ                  optional: links to other pages and workshops
+## ไปต่อ                      optional: things not covered in the session, for later in the hackathon
 ```
+
+Reference pages (cheat sheets, hardware lists, prompt templates) can skip the task sections and go straight to tables, but keep the intro and the closing sections.
 
 - **Intro**: start with `**<Name>** คือ …` in plain words, then what you'd use it for in an app. If it works on both machines, end with "ใช้ได้ทั้ง Xcode 26 และ 27". If not, put the `mchip`/`intel` admonition directly under the H1, including how to guard the code (`#if compiler(>=6.4)`).
 - **Name sections after tasks, not APIs**: "วัดระยะที่จุดกลางจอ", not "ARFrame". Number them (`## 1. …`) when each builds on the previous one.
 - **Each task section**: 1–2 sentences on why → one code block → 1–2 sentences on what happens and what to watch for.
 - **Code**: ≤ ~30 lines per block. Anything longer, or anything that must compile, lives in the starter repo and is included with `--8<-- "path/File.swift:section"`.
 - **Troubleshooting**: a table `อาการ | สาเหตุ | วิธีแก้`. Use `!!! failure "<error message>"` for a single exact error.
-- **Optional extras** that are not part of the session (export your own model, advanced options) go in a collapsed `??? note` or at the end under `## ใช้ร่วมกับ`.
+- **Optional extras** that are not part of the session (export your own model, advanced options) go in a collapsed `??? note` or at the end under `## ไปต่อ`.
 - **Length**: ≤ ~150 lines. Split the page if it grows past that.
 
 ## Writing conventions (all pages)
@@ -114,7 +103,7 @@ Keep at least 40% of the session hands-on.
 ## Before you submit
 
 - [ ] Landing page has all sections, in order, with the fixed anchors
-- [ ] Every Hands-on step links to a topic page, and there is a catch-up path
+- [ ] Every ลงมือปฏิบัติ step links to a topic page, and there is a catch-up path
 - [ ] Every topic page says which machines it works on
 - [ ] Code blocks ≤ ~30 lines; longer code is in the starter repo
 - [ ] Workshop added to `nav` in `mkdocs.yml` and its card in `docs/index.md` is filled in

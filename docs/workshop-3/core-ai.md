@@ -80,7 +80,7 @@ print(response.content)
 
 ## Motion Coach
 
-Stretch goal ของ [hands-on](index.md#hands-on-motion-coach): ส่งท่าที่ classifier ทายได้ ความมั่นใจ และระยะจาก LiDAR (ถ้ามี) ให้ Core AI เขียนคำแนะนำสั้นๆ ใช้ `@Generable` เพื่อให้ได้ผลเป็น struct นำไปแสดงใน UI ได้ทันที
+ต่อยอดจาก[ลงมือปฏิบัติ](index.md#motion-coach): ส่งท่าที่ classifier ทายได้ ความมั่นใจ และระยะจาก LiDAR (ถ้ามี) ให้ Core AI เขียนคำแนะนำสั้นๆ ใช้ `@Generable` เพื่อให้ได้ผลเป็น struct นำไปแสดงใน UI ได้ทันที
 
 ```swift
 @Generable
@@ -106,9 +106,9 @@ print(result.tip, result.score)
 !!! tip "Model เล็ก ต้องช่วยมันหน่อย"
     Qwen3 0.6B เล็กกว่า AFM มาก ภาษาไทยอาจไม่ดีเท่า ให้เขียน instructions สั้นและชัด, ใช้ `@Generable` บังคับรูปแบบคำตอบ และเรียกเฉพาะเมื่อจำเป็น เช่น ตอนจบเซ็ต ไม่ใช่ทุกครั้งที่ทายท่า ลองเทียบผลกับ [AFM 3 หรือ model บน cluster](../workshop-2/models.md) แล้วเลือกตัวที่เหมาะกับ app
 
-## ใช้ร่วมกับ Dynamic Profile
+## ใช้ร่วมกับ
 
-ส่ง Core AI model เข้า `.model()` ของ [Dynamic Profile](../workshop-2/dynamic-profiles.md#4-model) ได้ เช่น ใช้ AFM ตอนคุยทั่วไป แล้วสลับไป Core AI model ที่เลือกเองตอนให้คำแนะนำ
+- [Dynamic Profile](../workshop-2/dynamic-profiles.md#4-model): ส่ง Core AI model เข้า `.model()` ได้ เช่น ใช้ AFM ตอนคุยทั่วไป แล้วสลับไป Core AI model ที่เลือกเองตอนให้คำแนะนำ
 
 ## ไปต่อ
 
